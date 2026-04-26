@@ -27,5 +27,17 @@ Inheritance has been achieved by creating a parent class Room, and then creating
 
 # Encapsulation
 
-Encapsulation is implemented by using private variables and methods, which are not accessible from outside the class. For example, the Room class has a private variable _price, which is not accessible from outside the class.  
+Encapsulation, which means hiding objects private data, is implemented by using private variables and methods, which are not accessible from outside the class. For example, the Room class has a private variable _price, which is not accessible from outside the class. Only manager can access it. 
 ![alt text](image-1.png)
+
+# Abstraction
+
+Abstraction means hiding objects private data, and showing only the necessary information to the user. In this code it is implemented in abstract class User, it cannot be instantiated directly and forces all subclasses to implement the get_role() method.
+![alt text](image-2.png)
+
+# Polymorphism
+
+Polymorphism means the same method can produce different behaviour depending on the object it is called on. This program uses subtype polymorphism, where subclasses override methods inherited from a parent class. This is used across Room/Suite/Penthouse classes with set_price and get_price methods. 
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
