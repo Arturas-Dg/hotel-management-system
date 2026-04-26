@@ -25,5 +25,7 @@ This program fully satisfies the requirements, and further down below each of th
 Inheritance has been achieved by creating a parent class Room, and then creating child classes Suite, Penthouse and Standard, which inherit from the Room class. The same principle is used with the parent class User, from which two child classes Guest and Staff are derived, use its methods and attributes. 
 ![alt text](image.png)
 
+# Encapsulation
 
-
+Encapsulation is implemented by using private variables and methods, which are not accessible from outside the class. For example, the Room class has a private variable _price, which is not accessible from outside the class.  
+![alt text](image-1.png)
