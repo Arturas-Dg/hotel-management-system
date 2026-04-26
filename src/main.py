@@ -51,6 +51,16 @@ class Hotel:
                 })
         print(f"Reservations successfully loaded from {filename}")
 
+    def cancel_reservation(self, guest_id, room_id):
+        for res in self.reservations:
+            if res["guest"].guest_id == guest_id and res["room"].room_id == room_id:
+                self.reservations.remove(res)
+                print(f"Reservation for guest {guest_id} in room {room_id} has been cancelled.")
+                return
+        print(f"No reservation found for guest {guest_id} in room {room_id}.")   
+
+            
+
     def display_rooms(self):
         print(f"\n--- {self.name} Room Status ---")
         for room in self.rooms:
@@ -223,18 +233,25 @@ if __name__ == "__main__":
 
     guest1 = Guest("G1", "John Doe", 1, stay_duration=3)
     guest2 = Guest("G2", "Jane Doe", 2, stay_duration=2)
+    guest3 = Guest("G3", "Bob Smith", 1, stay_duration=5)
+    guest4 = Guest("G4", "Alice Brown", 3, stay_duration=1)
+    guest5 = Guest("G5", "Carlos Rivera", 4, stay_duration=7)
 
-    print("\n--- Making first reservation ---")
+    print("\n--- Making reservations ---")
     guest1.reserve_room(hotel, room1, "2026-05-01")
+    guest2.reserve_room(hotel, suite1, "2026-05-01")
+    guest3.reserve_room(hotel, room1, "2026-05-10")   # after guest1 checks out
+    guest4.reserve_room(hotel, penthouse1, "2026-05-03")
+    guest5.reserve_room(hotel, penthouse1, "2026-05-01")  # blocked, over capacity
 
-    print("\n--- Making second reservation (overlapping) ---")
-    guest2.reserve_room(hotel, room1, "2026-05-02")
-    
+    print("\n--- Attempting overlapping reservation ---")
+    guest2.reserve_room(hotel, room1, "2026-05-02")  # blocked, overlaps guest1
+
     print("\n--- Saving to CSV ---")
     hotel.save_reservations_to_csv("reservations.csv")
 
     hotel.reservations.clear()
-    
+
     print("\n--- Loading from CSV ---")
     hotel.load_reservations_from_csv("reservations.csv")
     print(f"Loaded {len(hotel.reservations)} reservations from CSV.")

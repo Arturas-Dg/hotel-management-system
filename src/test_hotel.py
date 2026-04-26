@@ -1,6 +1,6 @@
 import unittest
 import os
-from main import Hotel, Room, Suite, Penthouse, Guest, Staff
+from hotel_management_system.main import Hotel, Room, Suite, Penthouse, Guest, Staff
 
 
 class TestFactory(unittest.TestCase):
@@ -20,7 +20,7 @@ class TestFactory(unittest.TestCase):
     def test_create_unknown_type_raises_error(self):
         with self.assertRaises(ValueError):
             Room.create("Cabin", "401", 2, 50)
-    
+
 
 class TestReservations(unittest.TestCase):
 
