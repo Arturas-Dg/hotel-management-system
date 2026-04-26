@@ -22,6 +22,8 @@ This program fully satisfies the requirements, and further down below each of th
 
 # Inheritance
 
-Inheritance has been achieved by creating a parent class Room, and then creating child classes Suite, Penthouse and Standard, which inherit from the Room class.
+Inheritance has been achieved by creating a parent class Room, and then creating child classes Suite, Penthouse and Standard, which inherit from the Room class. The same principle is used with the parent class User, from which two child classes Guest and Staff are derived, use its methods and attributes. 
 ![alt text](image.png)
+
+
 
