@@ -262,3 +262,7 @@ if __name__ == "__main__":
     staff_member = Staff("Arturas", "pass789", "E001", "Manager")
     price = staff_member.get_reservation_price(hotel, "101", "G1")
     print(f"Staff member {staff_member.username} retrieved reservation price: ${price}")
+
+    print("\n--- Cancelling guest1's reservation ---")
+    hotel.cancel_reservation("G1", "101")
+    hotel.save_reservations_to_csv("reservations.csv")
